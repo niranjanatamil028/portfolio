@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Niranjana Portfolio</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif;}
+  body{background:#e0f7f2;color:#000;scroll-behavior:smooth;}
+  header{width:100%;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;position:fixed;top:0;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);z-index:10;}
+  header h2{font-size:28px;color:#000;}
+  nav a{margin-left:20px;text-decoration:none;color:#000;font-weight:500;cursor:pointer;transition:0.3s;}
+  nav a:hover{color:#ffea00;}
+  section{padding:120px 40px 80px 40px;min-height:100vh;}
+  h2{margin-bottom:20px;font-size:32px;color:#000;}
+  .common-box, .project-item, .education-box, .skill-box, .contact-box{background:#00695c;color:#000;padding:20px;border-radius:12px;margin-top:20px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+  #home{display:flex;align-items:center;justify-content:center;}
+  .home-container{display:flex;flex-wrap:wrap;align-items:center;gap:40px;}
+  .home-text{flex:1;max-width:600px;text-align:left;}
+  .profile-pic{flex:1;display:flex;justify-content:flex-start;align-items:center;}
+  .profile-pic img{width:100%;max-width:350px;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,0.5);}
+  .highlight-name{color:#fff;}
+  #about .common-box{max-width:600px;margin:0 auto;line-height:1.6;}
+  .skills-list{display:flex;flex-direction:column;gap:10px;}
+  .skill-box{padding:8px 12px;font-size:16px;border-radius:12px;width:fit-content;}
+  .projects-grid{display:flex;flex-direction:column;gap:20px;}
+  .project-item{padding:20px;border-radius:12px;}
+  .education-container{display:flex;flex-direction:column;gap:20px;align-items:flex-start;}
+  .education-box{background:#00695c;color:#000;padding:20px;border-radius:12px;width:100%;max-width:600px;box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+  .contact-list{display:flex;flex-direction:column;gap:15px;}
+  .contact-box{padding:12px 15px;border-radius:12px;width:fit-content;font-size:16px;}
+  .contact-box a{text-decoration:none;color:#000;}
+  .contact-box a:hover{color:#a5d6a7;}
+  footer{text-align:center;padding:20px;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);color:#000;}
+  @media (max-width:768px){.home-container{flex-direction:column-reverse;text-align:center;}.profile-pic img{max-width:200px;margin-bottom:20px;}.education-container{align-items:center;}.education-box{width:100%;}}
+</style>
+</head>
+<body>
+
+<header>
+  <h2>Niranjana Portfolio</h2>
+  <nav>
+    <a data-target="home">Home</a>
+    <a data-target="about">About</a>
+    <a data-target="education">Education</a>
+    <a data-target="skills">Skills</a>
+    <a data-target="projects">Projects</a>
+    <a data-target="contact">Contact</a>
+  </nav>
+</header>
+
+<section id="home">
+  <div class="home-container">
+    <div class="home-text common-box" id="homeContent"></div>
+    <div class="profile-pic">
+      <img src="Niranjana.jpg" alt="My Photo">
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About Me</h2>
+  <div class="common-box" id="aboutContent"></div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <div class="education-container" id="educationContent"></div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills-list" id="skillsContent"></div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid" id="projectsContent"></div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="contact-list" id="contactContent"></div>
+</section>
+
+<footer>© 2025 Niranjana | All Rights Reserved</footer>
+
+<script>
+// All content split into lines for line-by-line reveal
+const content = {
+  home: ["<h1>Hello, I'm <span class='highlight-name'>Niranjana.T</span></h1>",
+         "<p>A Pre Final Year Computer Science and Engineering student and a Passionate Developer & Learner</p>"],
+  about: [
+    "<p>I'm Niranjana Tamilenthi, a dedicated Computer Science and Engineering student at Velammal Engineering College, Chennai.</p>",
+    "<p>I have a strong foundation in HTML, CSS, JavaScript, and Java.</p>",
+    "<p>Passionate about developing solutions, exploring networks and cloud computing, and collaborating on impactful tech projects.</p>"
+  ],
+  education: [
+    "<div class='education-box'><h3>Velammal Engineering College, Chennai</h3><p>B.Tech CSE (2023-Present)</p><p>CGPA: 7.77</p></div>",
+    "<div class='education-box'><h3>St. Isabel HR Sec School, Pattukottai</h3><p>Higher Secondary (2021-2023)</p><p>Percentage: 70%</p></div>",
+    "<div class='education-box'><h3>Reena Mercy Matriculation School</h3><p>Secondary (2020-2021)</p></div>"
+  ],
+  skills: [
+    "<div class='skill-box'>HTML</div>",
+    "<div class='skill-box'>CSS</div>",
+    "<div class='skill-box'>JavaScript</div>",
+    "<div class='skill-box'>Computer Networks</div>",
+    "<div class='skill-box'>Java</div>",
+    "<div class='skill-box'>Cloud Computing</div>",
+    "<div class='skill-box'>AWS</div>"
+  ],
+  projects: [
+    "<div class='project-item'><h3>SPACE INVADERS GAME USING PYGAME</h3><p>A classic arcade game built with Python's Pygame library.</p></div>",
+    "<div class='project-item'><h3>CAR RENTAL WEBSITE</h3><p>Web app for booking rental cars online with HTML, CSS, JS.</p></div>",
+    "<div class='project-item'><h3>ONLINE CONTACT BOOK</h3><p>Web app to manage contacts online.</p></div>",
+    "<div class='project-item'><h3>ONLINE QUIZ SYSTEM</h3><p>Web app to take quizzes online with backend integration.</p></div>"
+  ],
+  contact: [
+    "<div class='contact-box'>📞 Mobile: +91 9360352494</div>",
+    "<div class='contact-box'>📧 Email: <a href='mailto:niranjanatamil028@gmail.com'>niranjanatamil028@gmail.com</a></div>",
+    "<div class='contact-box'>🔗 LinkedIn: <a href='https://www.linkedin.com/in/niranjana-tamilenthi'>linkedin.com/in/niranjana-tamilenthi</a></div>",
+    "<div class='contact-box'>📍 Location: Chennai, India</div>"
+  ]
+};
+
+// Function to reveal content line by line
+function revealLines(sectionId, elementId) {
+  const el = document.getElementById(elementId);
+  if(el.dataset.loaded) return; // load only once
+  el.dataset.loaded = true;
+
+  let lines = content[sectionId];
+  let i = 0;
+
+  function showNextLine() {
+    if(i < lines.length){
+      let div = document.createElement('div');
+      div.innerHTML = lines[i];
+      div.style.opacity = 0;
+      el.appendChild(div);
+      // fade-in animation
+      setTimeout(()=>{ div.style.transition="opacity 0.8s"; div.style.opacity=1; }, 50);
+      i++;
+      setTimeout(showNextLine, 400); // delay between lines
+    }
+  }
+
+  showNextLine();
+}
+
+// Initial load Home
+revealLines('home','homeContent');
+
+// Nav click
+document.querySelectorAll('nav a').forEach(link=>{
+  link.addEventListener('click', e=>{
+    const target = link.getAttribute('data-target');
+    revealLines(target,target+'Content');
+    document.getElementById(target).scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Optional: reveal on scroll
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      revealLines(id,id+'Content');
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('section').forEach(section=>observer.observe(section));
+</script>
+
+</body>
+</html>
